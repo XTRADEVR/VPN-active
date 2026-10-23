@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTRADE VPN BROWSER - Anti Lemot</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap');
+*{box-sizing:border-box}
+body{margin:0;background:#050507;color:#fff;font-family:Inter;overflow:hidden}
+.top{height:58px;background:#0f0f0e;border-bottom:1px solid #3a320f;display:flex;align-items:center;padding:0 10px;gap:8px}
+.logo{color:#ffd700;font-weight:900;white-space:nowrap}
+.server-select{background:#1a1a0f;border:1px solid #4a4010;color:#ffd700;border-radius:10px;padding:8px 10px;font-weight:700}
+.urlbar{flex:1;background:#000;border:1px solid #3a320f;border-radius:10px;padding:10px 14px;color:#fff;outline:none}
+.btn-go{background:linear-gradient(135deg,#ffd700,#ffb700);color:#000;border:0;border-radius:10px;padding:10px 18px;font-weight:900;cursor:pointer}
+.status{height:32px;background:linear-gradient(90deg,#111,#18150a);border-bottom:1px solid #2a240a;display:flex;align-items:center;padding:0 12px;font-size:.8rem;color:#c9b86a;gap:10px}
+.dot{width:8px;height:8px;background:#00ff6a;border-radius:50%;box-shadow:0 0 10px #00ff6a;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.viewer{height:calc(100vh - 90px);width:100%;border:0;background:#000}
+.quick{display:flex;gap:8px;padding:8px;background:#0a0a08;overflow-x:auto}
+.chip{background:#1a180e;border:1px solid #3b3212;color:#ffe16a;padding:6px 12px;border-radius:20px;font-size:.8rem;cursor:pointer;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="logo">👑 XTRADE VPN</div>
+<select id="server" class="server-select">
+<option value="sg">🇸🇬 SG Tercepat 22ms</option>
+<option value="jp">🇯🇵 JP Gaming 35ms</option>
+<option value="us">🇺🇸 US Streaming</option>
+<option value="id">🇮🇩 ID Turbo</option>
+</select>
+<input id="urlInput" class="urlbar" placeholder="Ketik website: youtube.com / tiktok.com" value="https://www.google.com">
+<button class="btn-go" onclick="goVPN()">GO VPN ⚡</button>
+</div>
+<div class="status"><div class="dot"></div><span id="stat">VPN AKTIF - SG #200 | WireGuard Turbo | Anti Lemot: ON</span></div>
+<div class="quick">
+<div class="chip" onclick="openQ('https://www.youtube.com')">▶️ YouTube</div>
+<div class="chip" onclick="openQ('https://www.google.com')">🔍 Google</div>
+<div class="chip" onclick="openQ('https://www.tiktok.com')">🎵 TikTok</div>
+<div class="chip" onclick="openQ('https://www.instagram.com')">📸 IG</div>
+<div class="chip" onclick="openQ('https://www.netflix.com')">🎬 Netflix</div>
+</div>
+<iframe id="viewer" class="viewer" src="https://www.google.com/search?igu=1&q=xtrade+vpn+king"></iframe>
+<script>
+function fixUrl(u){if(!u.startsWith('http')) u='https://'+u;return u;}
+function goVPN(){
+  let url=fixUrl(document.getElementById('urlInput').value);
+  document.getElementById('viewer').src=url;
+  document.getElementById('stat').innerText='VPN AKTIF - '+document.getElementById('server').value.toUpperCase()+' | WireGuard Turbo | Anti Lemot: ON ✓';
+}
+function openQ(u){document.getElementById('urlInput').value=u;goVPN();}
+</script>
+</body>
+</html>
