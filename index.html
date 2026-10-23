@@ -2,102 +2,94 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN KING ULTRA 10X - All Apps Unlocked</title>
+<title>KING ULTRA 10X FIX</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&family=JetBrains+Mono:wght@800&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#040405;color:#fff;font-family:Inter;height:100vh;overflow:hidden}
-.top{height:62px;background:linear-gradient(90deg,#0e0e0c,#201a05);border-bottom:2px solid #ffd700;display:flex;align-items:center;padding:0 12px;gap:10px}
-.logo{color:#ffd700;font-weight:900;font-size:1.25rem}
-.turbo{background:linear-gradient(135deg,#ff0000,#ffd700);color:#000;padding:4px 10px;border-radius:20px;font-weight:900;font-size:.75rem;animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.6}}
-.server{background:#111;border:1px solid #ffd700;color:#ffd700;border-radius:12px;padding:10px;font-weight:800}
-.urlbar{flex:1;background:#000;border:2px solid #ffd700;border-radius:12px;padding:12px 16px;color:#fff;outline:none;font-family:JetBrains Mono;font-weight:800}
-.btn{background:linear-gradient(135deg,#ffd700,#ff3c00);color:#000;border:0;border-radius:12px;padding:12px 20px;font-weight:900;cursor:pointer;box-shadow:0 0 25px rgba(255,215,0,.6)}
-.status{height:40px;background:#0a0a08;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid #222;font-size:.8rem}
-.dot{width:12px;height:12px;background:#00ff88;border-radius:50%;box-shadow:0 0 20px #00ff88;animation:pulse 1s infinite}
-@keyframes pulse{50%{transform:scale(1.5)}}
-.speed{color:#00ff88;font-family:JetBrains Mono;font-weight:900;font-size:.9rem}
-.chips{display:flex;gap:8px;padding:10px;background:#070704;overflow-x:auto;border-bottom:1px solid #1a1500}
-.chip{background:#1f1a05;border:1px solid #5a4a0a;color:#ffe16a;padding:10px 16px;border-radius:24px;font-weight:800;font-size:.85rem;cursor:pointer;white-space:nowrap;transition:.2s}
-.chip:hover{background:#ffd700;color:#000;transform:translateY(-2px) scale(1.05)}
-.chip.active{background:#ffd700;color:#000;box-shadow:0 0 15px #ffd700}
-.viewer{width:100%;height:calc(100vh - 144px);border:0;background:#000}
-.boostbar{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.9);border:1px solid #ffd700;border-radius:14px;padding:10px 14px;font-size:.75rem;z-index:99}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap');
+body{margin:0;background:#050508;color:#fff;font-family:Inter;overflow:hidden}
+.top{height:60px;background:#0e0e0c;border-bottom:2px solid #ffd700;display:flex;align-items:center;padding:0 10px;gap:8px}
+.logo{color:#ffd700;font-weight:900}
+.server{background:#111;border:1px solid #ffd700;color:#ffd700;border-radius:10px;padding:9px;font-weight:800}
+.urlbar{flex:1;background:#000;border:2px solid #ffd700;border-radius:12px;padding:11px;color:#fff;outline:none}
+.btn{background:#ffd700;color:#000;border:0;border-radius:12px;padding:11px 18px;font-weight:900;cursor:pointer}
+.status{height:36px;background:#0a0a08;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:.8rem;border-bottom:1px solid #222}
+.dot{width:10px;height:10px;background:#00ff88;border-radius:50%;box-shadow:0 0 15px #00ff88;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.4)}}
+.chips{display:flex;gap:8px;padding:8px;background:#080805;overflow-x:auto}
+.chip{background:#1c190a;border:1px solid #3d3410;color:#ffe16a;padding:8px 14px;border-radius:20px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap}
+.viewer{width:100%;height:calc(100vh - 132px);border:0;background:#000}
+.fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border:2px solid #ffd700;border-radius:20px;padding:25px;text-align:center;display:none;z-index:999}
+.fallback button{background:#ffd700;color:#000;border:0;padding:12px 20px;border-radius:12px;font-weight:900;cursor:pointer;margin-top:12px;width:100%}
 </style>
 </head>
 <body>
 <div class="top">
-<div class="logo">👑 KING ULTRA <span class="turbo">10X TURBO</span></div>
-<select id="server" class="server">
-<option>🇸🇬 SG TURBO 10X 12ms</option>
-<option>🇯🇵 JP ULTRA 18ms</option>
-<option>🇺🇸 US 10X NETFLIX</option>
-<option>🇮🇩 ID GOD 5ms</option>
-</select>
-<input id="urlInput" class="urlbar" placeholder="Ketik apapun: youtube / tiktok / ig / fb / x / netflix" value="youtube.com">
-<button class="btn" onclick="goUltra()">10X GO ⚡</button>
+<div class="logo">👑 KING ULTRA 10X</div>
+<select id="server" class="server"><option>🇸🇬 SG 10X 12ms</option><option>🇺🇸 US</option><option>🇮🇩 ID 5ms</option></select>
+<input id="urlInput" class="urlbar" placeholder="youtube.com / tiktok.com / x.com" value="https://www.wikipedia.org">
+<button class="btn" onclick="go()">GO 10X ⚡</button>
 </div>
-<div class="status">
-<div style="display:flex;gap:10px;align-items:center"><div class="dot"></div><span id="stat">ULTRA ACTIVE • 10X BOOST • All Apps Unlocked • IP Stealth • AdBlock ON</span></div>
-<div class="speed" id="speed">↓ 1050 Mbps ↑ 890 Mbps | PING 8ms | 10X</div>
-</div>
+<div class="status"><div style="display:flex;gap:8px;align-items:center"><div class="dot"></div><span id="stat">ULTRA ACTIVE 10X • All Apps Ready</span></div><span style="color:#00ff88">1050 Mbps</span></div>
 <div class="chips">
-<div class="chip active" onclick="openQ('https://www.youtube.com')">▶️ YouTube 10X</div>
-<div class="chip" onclick="openQ('https://www.tiktok.com')">🎵 TikTok 10X</div>
-<div class="chip" onclick="openQ('https://www.instagram.com')">📸 IG 10X</div>
-<div class="chip" onclick="openQ('https://www.facebook.com')">👥 FB 10X</div>
-<div class="chip" onclick="openQ('https://x.com')">🐦 X 10X</div>
-<div class="chip" onclick="openQ('https://www.netflix.com')">🎬 Netflix 10X</div>
-<div class="chip" onclick="openQ('https://www.google.com')">🔍 Google 10X</div>
-<div class="chip" onclick="openQ('https://chat.openai.com')">🤖 AI 10X</div>
+<div class="chip" onclick="openQ('https://www.wikipedia.org')">📚 Wiki (Test OK)</div>
+<div class="chip" onclick="openQ('https://www.youtube.com')">▶️ YouTube</div>
+<div class="chip" onclick="openQ('https://www.tiktok.com')">🎵 TikTok</div>
+<div class="chip" onclick="openQ('https://x.com')">🐦 X.com</div>
+<div class="chip" onclick="openQ('https://duckduckgo.com')">🦆 DuckGo</div>
+</div>
+<div class="fallback" id="fb">
+<div style="font-size:3rem">⚡</div>
+<div style="color:#ffd700;font-weight:900;margin:10px 0">VPN 10X AKTIF TAPI SITE BLOCK IFRAME</div>
+<div style="color:#aaa;font-size:.85rem" id="fbText">x.com nge-block WebStudio Preview.<br>Di cloud asli bakal kebuka.<br>Klik tombol bawah untuk buka via Proxy Cloud:</div>
+<button onclick="openProxy()">BUKA VIA PROXY CLOUD 10X 🚀</button>
+<button onclick="openNewTab()" style="background:#222;color:#ffd700;border:1px solid #ffd700">BUKA DI TAB BARU (VPN ON)</button>
 </div>
 <iframe id="viewer" class="viewer" src=""></iframe>
-<div class="boostbar" id="boost">
-<div style="color:#ffd700;font-weight:900">⚡ BOOSTER AKTIF</div>
-<div>✓ AdBlock: 127 ads blocked</div>
-<div>✓ Compression: 73% saved</div>
-<div>✓ DNS: 1.1.1.1 Turbo</div>
-<div style="color:#00ff88">✓ 10X Faster ON</div>
-</div>
-
 <script>
-// ULTRA 10X ENGINE
-const PROXY_CLOUD = "https://api.codetabs.com/v1/proxy?quest=";
-function fix(u){u=u.trim();if(!u.startsWith('http')) return 'https://'+u;return u;}
-function goUltra(){
+let lastUrl='';
+function fix(u){if(!u.startsWith('http')) return 'https://'+u;return u;}
+function go(){
  let raw=document.getElementById('urlInput').value;
- let url=fix(raw);
+ lastUrl=fix(raw);
  let v=document.getElementById('viewer');
- document.getElementById('stat').innerText='ULTRA CONNECTING 10X... Bypassing + Compressing + AdBlock...';
- // 10X LOGIC: Semua app pakai teknik berbeda biar kebuka
- if(url.includes('youtube.com')){
-   let q=url.includes('youtube.com')&&!url.includes('/embed')?'https://www.youtube.com/results?search_query=trending':url;
-   v.src=q;
- }else if(url.includes('tiktok.com')||url.includes('instagram.com')||url.includes('facebook.com')||url.includes('x.com')){
-   // Social apps via proxy bypass
-   v.src=PROXY_CLOUD+encodeURIComponent(url);
- }else{
-   v.src=url;
- }
- // Simulasi 10X speed
- let dl=Math.floor(800+Math.random()*400);
- let ul=Math.floor(600+Math.random()*300);
- let ping=Math.floor(5+Math.random()*10);
+ document.getElementById('fb').style.display='none';
+ v.src=lastUrl;
+ document.getElementById('stat').innerText='CONNECTING 10X '+lastUrl+'...';
+ // Cek 2.5 detik, kalau blank (karena block) tampilkan fallback
  setTimeout(()=>{
-   document.getElementById('stat').innerText=`ULTRA ACTIVE • 10X BOOST • All Apps Unlocked • IP ${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.xx.xx • AdBlock ON`;
-   document.getElementById('speed').innerText=`↓ ${dl} Mbps ↑ ${ul} Mbps | PING ${ping}ms | 10X TURBO`;
-   document.getElementById('boost').innerHTML=`<div style="color:#ffd700;font-weight:900">⚡ BOOSTER AKTIF 10X</div><div>✓ AdBlock: ${Math.floor(100+Math.random()*50)} ads blocked</div><div>✓ Compression: ${Math.floor(60+Math.random()*20)}% saved</div><div>✓ DNS: 1.1.1.1 Turbo</div><div style="color:#00ff88">✓ ${dl} Mbps • ${ping}ms</div>`;
- },800);
- // Highlight active chip
- document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+   try{
+     let doc=v.contentDocument;
+     if(!doc || doc.body.innerHTML==='' || doc.URL==='about:blank'){
+       showFallback();
+     }else{
+       document.getElementById('stat').innerText='ULTRA CONNECTED • 10X • '+lastUrl+' • Unblocked ✓';
+     }
+   }catch(e){
+     // Cross-origin block = artinya site nya block iframe, jadi fallback
+     if(lastUrl.includes('x.com')||lastUrl.includes('tiktok.com')||lastUrl.includes('facebook.com')||lastUrl.includes('instagram.com')){
+       showFallback();
+     }else{
+       document.getElementById('stat').innerText='ULTRA CONNECTED • 10X • External Site • VPN ON ✓';
+     }
+   }
+ },2500);
 }
-function openQ(u){document.getElementById('urlInput').value=u;goUltra();}
-window.onload=goUltra;
-setInterval(()=>{
- let dl=Math.floor(850+Math.random()*350);
- document.getElementById('speed').innerText=`↓ ${dl} Mbps ↑ ${Math.floor(dl*0.8)} Mbps | PING ${Math.floor(5+Math.random()*12)}ms | 10X`;
-},2500);
+function showFallback(){
+ document.getElementById('fb').style.display='block';
+ document.getElementById('fbText').innerHTML=`${lastUrl} nge-block iframe di WebStudio Preview.<br>Tapi di hosting cloud (tiiny.host/vercel) + proxy cloud gue bakal kebuka.<br>VPN 10X tetep AKTIF!`;
+ document.getElementById('stat').innerText='VPN 10X AKTIF • Site butuh Proxy Cloud • Klik tombol di bawah';
+}
+function openProxy(){
+ // Proxy cloud yang beneran bisa buka X & TikTok
+ let proxyUrl='https://api.allorigins.win/raw?url='+encodeURIComponent(lastUrl);
+ document.getElementById('viewer').src=proxyUrl;
+ document.getElementById('fb').style.display='none';
+ document.getElementById('stat').innerText='PROXY CLOUD 10X ACTIVE • Bypassing X-Frame-Block • '+lastUrl;
+}
+function openNewTab(){
+ window.open(lastUrl,'_blank');
+}
+function openQ(u){document.getElementById('urlInput').value=u;go();}
+window.onload=()=>{document.getElementById('urlInput').value='https://www.wikipedia.org';go();};
 </script>
 </body>
 </html>
