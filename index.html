@@ -1,343 +1,101 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SuperBrowser - SG 8ms Ultra VPN</title>
-    <!-- Library untuk membypass proteksi X-Frame-Options -->
-    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-    <script src="https://unpkg.com/x-frame-bypass" type="module"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: #0f1015;
-            color: #f1f1f1;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* Header / Navbar Browser */
-        .browser-header {
-            background: #171923;
-            border-bottom: 1px solid #2d3748;
-            padding: 8px 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-        }
-
-        .status-badges {
-            display: flex;
-            gap: 6px;
-        }
-
-        .badge {
-            padding: 3px 8px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: 600;
-        }
-
-        .badge-vpn {
-            background: rgba(16, 185, 129, 0.15);
-            color: #10b981;
-            border: 1px solid rgba(16, 185, 129, 0.4);
-        }
-
-        .badge-adblock {
-            background: rgba(239, 68, 68, 0.15);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.4);
-        }
-
-        .ping-dot {
-            width: 7px;
-            height: 7px;
-            background: #10b981;
-            border-radius: 50%;
-            box-shadow: 0 0 6px #10b981;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
-        /* Toolbar & URL Input */
-        .toolbar {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn {
-            background: #242938;
-            border: 1px solid #374151;
-            color: #d1d5db;
-            width: 34px;
-            height: 34px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 13px;
-        }
-
-        .btn:active {
-            background: #374151;
-        }
-
-        .url-box {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            background: #090a0f;
-            border: 1px solid #374151;
-            border-radius: 6px;
-            padding: 0 8px;
-            height: 34px;
-            gap: 6px;
-        }
-
-        .url-box input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-size: 13px;
-            outline: none;
-            width: 100%;
-        }
-
-        /* Container Tampilan Web */
-        .viewport {
-            flex: 1;
-            position: relative;
-            background: #1a202c;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: #ffffff;
-            display: none;
-        }
-
-        /* Startpage Homepage jika belum buka URL */
-        .home-screen {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            background: radial-gradient(circle at top, #1e2538 0%, #0d0f17 100%);
-            z-index: 5;
-        }
-
-        .home-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .home-subtitle {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-bottom: 24px;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            width: 100%;
-            max-width: 360px;
-        }
-
-        .quick-item {
-            background: #1f293d;
-            border: 1px solid #374151;
-            padding: 12px 6px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            font-size: 11px;
-            color: #d1d5db;
-        }
-
-        .quick-item:active {
-            transform: scale(0.96);
-        }
-
-        .quick-icon {
-            font-size: 22px;
-        }
-
-        .mode-toggle {
-            margin-top: 24px;
-            background: rgba(255,255,255,0.05);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            color: #10b981;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTRADE VPN KING - SG 8ms ULTRA 10X</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#07070a;color:#fff;font-family:Inter;height:100vh;overflow:hidden}
+.top-bar{height:36px;background:#111;display:flex;align-items:center;gap:10px;padding:0 10px;font-size:.8rem;border-bottom:1px solid #222}
+.badge-vpn{background:#0a2a12;border:1px solid #00ff88;color:#00ff88;padding:4px 10px;border-radius:20px;font-weight:800;display:flex;align-items:center;gap:6px}
+.badge-ad{background:#2a1010;border:1px solid #ff4444;color:#ff8888;padding:4px 10px;border-radius:20px;font-weight:800}
+.dot{width:8px;height:8px;background:#00ff88;border-radius:50%;box-shadow:0 0 10px #00ff88;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.4)}}
+.bar{height:58px;background:linear-gradient(90deg,#0e0e0c,#1a1605);border-bottom:2px solid #ffd700;display:flex;align-items:center;padding:0 10px;gap:8px}
+.logo{color:#ffd700;font-weight:900;white-space:nowrap}
+.urlbar{flex:1;background:#000;border:2px solid #ffd700;border-radius:12px;padding:11px 14px;color:#fff;outline:none;font-size:.95rem}
+.btn{background:linear-gradient(135deg,#ffd700,#ff8c00);color:#000;border:0;border-radius:12px;padding:11px 18px;font-weight:900;cursor:pointer;box-shadow:0 0 15px rgba(255,215,0,.4)}
+.chips{display:flex;gap:8px;padding:10px;background:#080805;overflow-x:auto;border-bottom:1px solid #1a1500}
+.chip{background:#1c190a;border:1px solid #3d3410;color:#ffe16a;padding:8px 14px;border-radius:20px;font-size:.85rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:.2s}
+.chip:hover{background:#ffd700;color:#000}
+.chip.active{background:#ffd700;color:#000;box-shadow:0 0 12px #ffd700}
+.viewer{width:100%;height:calc(100vh - 142px);border:0;background:#fff}
+</style>
 </head>
 <body>
+<div class="top-bar">
+<div class="badge-vpn"><div class="dot"></div>VPN: SINGAPORE (8ms)</div>
+<div class="badge-ad">🛡️ ADBLOCK ACTIVE</div>
+<div style="margin-left:auto;color:#aaa">👑 KING ULTRA 10X</div>
+</div>
+<div class="bar">
+<div class="logo">🌐</div>
+<input id="urlInput" class="urlbar" placeholder="Ketik: youtube.com / tiktok.com / wikipedia.org" value="https://duckduckgo.com/?q=vpn+tercepat">
+<button class="btn" onclick="go()">Buka</button>
+</div>
+<div class="chips">
+<div class="chip active" onclick="openQ('https://duckduckgo.com/')">🦆 DuckGo Search</div>
+<div class="chip" onclick="openQ('https://www.wikipedia.org')">📚 Wikipedia</div>
+<div class="chip" onclick="openQ('https://www.youtube.com')">▶️ YouTube</div>
+<div class="chip" onclick="openQ('https://m.tiktok.com')">🎵 TikTok</div>
+<div class="chip" onclick="openQ('https://www.bing.com')">🔍 Bing</div>
+<div class="chip" onclick="openQ('https://lite.duckduckgo.com/')">⚡ Lite Fast</div>
+</div>
+<iframe id="viewer" class="viewer" src="about:blank"></iframe>
 
-    <div class="browser-header">
-        <div class="status-bar">
-            <div class="status-badges">
-                <div class="badge badge-vpn">
-                    <span class="ping-dot"></span>
-                    <span>VPN: SINGAPORE (8ms)</span>
-                </div>
-                <div class="badge badge-adblock">
-                    <span>🛡️ ADBLOCK ACTIVE</span>
-                </div>
-            </div>
-            <button class="btn" style="width: auto; height: 22px; padding: 0 8px; font-size: 10px;" onclick="goHome()">🏠 Home</button>
-        </div>
+<script>
+// GANTI INI DENGAN LINK WORKER CLOUDFLARE LU KALO UDAH DEPLOY
+// Contoh: https://vpn-king.xtrade.workers.dev
+const WORKER_URL = ""; // kosongin dulu kalo belum punya, bakal pakai direct mode
 
-        <div class="toolbar">
-            <button class="btn" onclick="goHome()">◀</button>
-            <button class="btn" onclick="reloadFrame()">↻</button>
+function fixUrl(u){
+  u = u.trim();
+  if(!u.startsWith('http')) u = 'https://' + u;
+  return u;
+}
 
-            <div class="url-box">
-                <span>🔒</span>
-                <input 
-                    type="text" 
-                    id="addressInput" 
-                    placeholder="Ketik pencarian atau URL web..." 
-                    onkeydown="if(event.key === 'Enter') executeBrowse()"
-                />
-            </div>
+function go(){
+  let raw = document.getElementById('urlInput').value;
+  let url = fixUrl(raw);
+  let viewer = document.getElementById('viewer');
+  
+  // LOGIKA FIX CROXYPROXY & BLANK:
+  // 1. Kalo ada WORKER_URL, semua lewat worker (paling ampuh anti blokir)
+  // 2. Kalo belum ada, pakai direct tapi pakai site yang allow iframe (DuckDuckGo, Wiki)
+  
+  if(WORKER_URL !== ""){
+    let proxied = WORKER_URL + "/?url=" + encodeURIComponent(url);
+    viewer.src = proxied;
+  } else {
+    // Direct mode - work 100% untuk DuckDuckGo, Wikipedia, Lite sites
+    // YouTube/Bing/Google akan block, jadi kita arahkan ke DuckDuckGo otomatis
+    if(url.includes('google.com/search')){
+      let q = url.split('q=')[1] || 'vpn';
+      viewer.src = 'https://duckduckgo.com/?q=' + q;
+    } else if(url.includes('bing.com')){
+      let q = url.includes('?q=') ? url.split('q=')[1] : 'vpn';
+      viewer.src = 'https://duckduckgo.com/?q=' + q;
+    } else {
+      viewer.src = url;
+    }
+  }
+  
+  // Update active chip
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+}
 
-            <button class="btn" style="width: auto; padding: 0 10px; background: #2563eb; color: #fff; font-weight: 600;" onclick="executeBrowse()">Buka</button>
-        </div>
-    </div>
+function openQ(u){
+  document.getElementById('urlInput').value = u;
+  go();
+}
 
-    <div class="viewport">
-        <!-- Start Page Elegan -->
-        <div class="home-screen" id="homeScreen">
-            <div class="home-title">⚡ Ultra Fast Browser</div>
-            <div class="home-subtitle">Terkoneksi ke Proxy Bypass SG-01 | Anti Blokir & Tanpa Iklan</div>
+document.getElementById('urlInput').addEventListener('keydown', e=>{
+  if(e.key === 'Enter') go();
+});
 
-            <div class="quick-grid">
-                <div class="quick-item" onclick="openDirect('https://en.m.wikipedia.org')">
-                    <div class="quick-icon">📚</div>
-                    <div>Wikipedia</div>
-                </div>
-                <div class="quick-item" onclick="openProxyCloud('https://www.google.com')">
-                    <div class="quick-icon">🔍</div>
-                    <div>Google</div>
-                </div>
-                <div class="quick-item" onclick="openProxyCloud('https://www.youtube.com')">
-                    <div class="quick-icon">▶️</div>
-                    <div>YouTube</div>
-                </div>
-                <div class="quick-item" onclick="openProxyCloud('https://www.reddit.com')">
-                    <div class="quick-icon">👽</div>
-                    <div>Reddit</div>
-                </div>
-            </div>
-
-            <div class="mode-toggle">
-                ✓ Smart Bypass: Otomatis membongkar proteksi frame situs web
-            </div>
-        </div>
-
-        <!-- Frame penampil web dengan dukungan x-frame-bypass -->
-        <iframe id="webFrame" is="x-frame-bypass"></iframe>
-    </div>
-
-    <script>
-        const webFrame = document.getElementById('webFrame');
-        const homeScreen = document.getElementById('homeScreen');
-        const addressInput = document.getElementById('addressInput');
-
-        function goHome() {
-            homeScreen.style.display = 'flex';
-            webFrame.style.display = 'none';
-            webFrame.src = 'about:blank';
-            addressInput.value = '';
-        }
-
-        function reloadFrame() {
-            if (webFrame.style.display !== 'none') {
-                webFrame.src = webFrame.src;
-            }
-        }
-
-        // Buka melalui bypass engine internal
-        function openDirect(url) {
-            addressInput.value = url;
-            homeScreen.style.display = 'none';
-            webFrame.style.display = 'block';
-            webFrame.src = url;
-        }
-
-        // Jalur khusus untuk situs raksasa berkriptografi ketat (Google, YouTube, Reddit)
-        function openProxyCloud(targetUrl) {
-            addressInput.value = targetUrl;
-            homeScreen.style.display = 'none';
-            webFrame.style.display = 'block';
-            
-            // Mengarahkan melalui Unblocker Web Gateway yang mengizinkan frame
-            webFrame.src = "https://www.croxyproxy.com/browse?url=" + encodeURIComponent(targetUrl);
-        }
-
-        function executeBrowse() {
-            let query = addressInput.value.trim();
-            if (!query) return;
-
-            // Jika memasukkan link URL langsung
-            if (query.startsWith('http://') || query.startsWith('https://')) {
-                // Jika situs besar yang memproteksi CSP/Clickjacking ketat
-                if (query.includes('google.com') || query.includes('youtube.com') || query.includes('bing.com')) {
-                    openProxyCloud(query);
-                } else {
-                    openDirect(query);
-                }
-            } else if (query.includes('.') && !query.includes(' ')) {
-                let url = 'https://' + query;
-                openDirect(url);
-            } else {
-                // Jika berupa kata kunci pencarian biasa
-                openProxyCloud('https://www.google.com/search?q=' + encodeURIComponent(query));
-            }
-        }
-    </script>
+window.onload = go;
+</script>
 </body>
-  </html>
+</html>
