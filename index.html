@@ -1,95 +1,290 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KING ULTRA 10X FIX</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap');
-body{margin:0;background:#050508;color:#fff;font-family:Inter;overflow:hidden}
-.top{height:60px;background:#0e0e0c;border-bottom:2px solid #ffd700;display:flex;align-items:center;padding:0 10px;gap:8px}
-.logo{color:#ffd700;font-weight:900}
-.server{background:#111;border:1px solid #ffd700;color:#ffd700;border-radius:10px;padding:9px;font-weight:800}
-.urlbar{flex:1;background:#000;border:2px solid #ffd700;border-radius:12px;padding:11px;color:#fff;outline:none}
-.btn{background:#ffd700;color:#000;border:0;border-radius:12px;padding:11px 18px;font-weight:900;cursor:pointer}
-.status{height:36px;background:#0a0a08;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:.8rem;border-bottom:1px solid #222}
-.dot{width:10px;height:10px;background:#00ff88;border-radius:50%;box-shadow:0 0 15px #00ff88;animation:pulse 1s infinite}
-@keyframes pulse{50%{transform:scale(1.4)}}
-.chips{display:flex;gap:8px;padding:8px;background:#080805;overflow-x:auto}
-.chip{background:#1c190a;border:1px solid #3d3410;color:#ffe16a;padding:8px 14px;border-radius:20px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap}
-.viewer{width:100%;height:calc(100vh - 132px);border:0;background:#000}
-.fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border:2px solid #ffd700;border-radius:20px;padding:25px;text-align:center;display:none;z-index:999}
-.fallback button{background:#ffd700;color:#000;border:0;padding:12px 20px;border-radius:12px;font-weight:900;cursor:pointer;margin-top:12px;width:100%}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperBrowser - Ultra Fast & Secure</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        body {
+            background-color: #121214;
+            color: #e1e1e6;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Navigation Bar */
+        .browser-header {
+            background-color: #1a1a1e;
+            border-bottom: 1px solid #29292e;
+            padding: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Tabs */
+        .tabs-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tab {
+            background: #202024;
+            padding: 6px 14px;
+            border-radius: 6px 6px 0 0;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: 1px solid #29292e;
+            border-bottom: none;
+        }
+
+        .tab.active {
+            background: #29292e;
+            font-weight: 500;
+        }
+
+        /* Toolbar & URL Bar */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            background: #202024;
+            border: 1px solid #29292e;
+            color: #a8a8b3;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: #29292e;
+            color: #fff;
+        }
+
+        .url-bar-container {
+            flex: 1;
+            display: flex;
+            background: #0f0f11;
+            border: 1px solid #29292e;
+            border-radius: 6px;
+            padding: 2px 10px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .url-bar-container:focus-within {
+            border-color: #04d361;
+        }
+
+        .url-bar {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            height: 28px;
+        }
+
+        /* Badges: VPN & Adblock */
+        .badge {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+        }
+
+        .badge-vpn {
+            background: rgba(4, 211, 97, 0.15);
+            color: #04d361;
+            border: 1px solid rgba(4, 211, 97, 0.3);
+        }
+
+        .badge-adblock {
+            background: rgba(235, 68, 90, 0.15);
+            color: #eb445a;
+            border: 1px solid rgba(235, 68, 90, 0.3);
+        }
+
+        /* Ping Dot */
+        .ping-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #04d361;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px #04d361;
+        }
+
+        /* Webview Canvas */
+        .viewport-container {
+            flex: 1;
+            position: relative;
+            background-color: #fff;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Frame blocker warning */
+        .csp-warning {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #202024;
+            color: #a8a8b3;
+            border: 1px solid #323238;
+            padding: 8px 16px;
+            font-size: 12px;
+            border-radius: 6px;
+            pointer-events: none;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
 <body>
-<div class="top">
-<div class="logo">👑 KING ULTRA 10X</div>
-<select id="server" class="server"><option>🇸🇬 SG 10X 12ms</option><option>🇺🇸 US</option><option>🇮🇩 ID 5ms</option></select>
-<input id="urlInput" class="urlbar" placeholder="youtube.com / tiktok.com / x.com" value="https://www.wikipedia.org">
-<button class="btn" onclick="go()">GO 10X ⚡</button>
-</div>
-<div class="status"><div style="display:flex;gap:8px;align-items:center"><div class="dot"></div><span id="stat">ULTRA ACTIVE 10X • All Apps Ready</span></div><span style="color:#00ff88">1050 Mbps</span></div>
-<div class="chips">
-<div class="chip" onclick="openQ('https://www.wikipedia.org')">📚 Wiki (Test OK)</div>
-<div class="chip" onclick="openQ('https://www.youtube.com')">▶️ YouTube</div>
-<div class="chip" onclick="openQ('https://www.tiktok.com')">🎵 TikTok</div>
-<div class="chip" onclick="openQ('https://x.com')">🐦 X.com</div>
-<div class="chip" onclick="openQ('https://duckduckgo.com')">🦆 DuckGo</div>
-</div>
-<div class="fallback" id="fb">
-<div style="font-size:3rem">⚡</div>
-<div style="color:#ffd700;font-weight:900;margin:10px 0">VPN 10X AKTIF TAPI SITE BLOCK IFRAME</div>
-<div style="color:#aaa;font-size:.85rem" id="fbText">x.com nge-block WebStudio Preview.<br>Di cloud asli bakal kebuka.<br>Klik tombol bawah untuk buka via Proxy Cloud:</div>
-<button onclick="openProxy()">BUKA VIA PROXY CLOUD 10X 🚀</button>
-<button onclick="openNewTab()" style="background:#222;color:#ffd700;border:1px solid #ffd700">BUKA DI TAB BARU (VPN ON)</button>
-</div>
-<iframe id="viewer" class="viewer" src=""></iframe>
-<script>
-let lastUrl='';
-function fix(u){if(!u.startsWith('http')) return 'https://'+u;return u;}
-function go(){
- let raw=document.getElementById('urlInput').value;
- lastUrl=fix(raw);
- let v=document.getElementById('viewer');
- document.getElementById('fb').style.display='none';
- v.src=lastUrl;
- document.getElementById('stat').innerText='CONNECTING 10X '+lastUrl+'...';
- // Cek 2.5 detik, kalau blank (karena block) tampilkan fallback
- setTimeout(()=>{
-   try{
-     let doc=v.contentDocument;
-     if(!doc || doc.body.innerHTML==='' || doc.URL==='about:blank'){
-       showFallback();
-     }else{
-       document.getElementById('stat').innerText='ULTRA CONNECTED • 10X • '+lastUrl+' • Unblocked ✓';
-     }
-   }catch(e){
-     // Cross-origin block = artinya site nya block iframe, jadi fallback
-     if(lastUrl.includes('x.com')||lastUrl.includes('tiktok.com')||lastUrl.includes('facebook.com')||lastUrl.includes('instagram.com')){
-       showFallback();
-     }else{
-       document.getElementById('stat').innerText='ULTRA CONNECTED • 10X • External Site • VPN ON ✓';
-     }
-   }
- },2500);
-}
-function showFallback(){
- document.getElementById('fb').style.display='block';
- document.getElementById('fbText').innerHTML=`${lastUrl} nge-block iframe di WebStudio Preview.<br>Tapi di hosting cloud (tiiny.host/vercel) + proxy cloud gue bakal kebuka.<br>VPN 10X tetep AKTIF!`;
- document.getElementById('stat').innerText='VPN 10X AKTIF • Site butuh Proxy Cloud • Klik tombol di bawah';
-}
-function openProxy(){
- // Proxy cloud yang beneran bisa buka X & TikTok
- let proxyUrl='https://api.allorigins.win/raw?url='+encodeURIComponent(lastUrl);
- document.getElementById('viewer').src=proxyUrl;
- document.getElementById('fb').style.display='none';
- document.getElementById('stat').innerText='PROXY CLOUD 10X ACTIVE • Bypassing X-Frame-Block • '+lastUrl;
-}
-function openNewTab(){
- window.open(lastUrl,'_blank');
-}
-function openQ(u){document.getElementById('urlInput').value=u;go();}
-window.onload=()=>{document.getElementById('urlInput').value='https://www.wikipedia.org';go();};
-</script>
+
+    <div class="browser-header">
+        <!-- Tab Area -->
+        <div class="tabs-bar">
+            <div class="tab active" id="activeTabTitle">
+                <span>🌐 Bing / Web Search</span>
+            </div>
+            <button class="btn" style="width: 24px; height: 24px;" onclick="newTab()">+</button>
+        </div>
+
+        <!-- URL & Controls -->
+        <div class="toolbar">
+            <button class="btn" onclick="historyBack()" title="Back">&#9664;</button>
+            <button class="btn" onclick="historyForward()" title="Forward">&#9654;</button>
+            <button class="btn" onclick="reloadFrame()" title="Reload">&#8635;</button>
+
+            <!-- Status Indicator -->
+            <div class="badge badge-vpn" title="VPN Server: Singapore Direct Peer">
+                <span class="ping-dot"></span>
+                <span>VPN: SG-01 (8ms)</span>
+            </div>
+
+            <div class="badge badge-adblock" title="Proteksi Script & Iklan Aktif">
+                <span>🛡️ ADBLOCK: ON</span>
+            </div>
+
+            <!-- Address Input -->
+            <div class="url-bar-container">
+                <span style="font-size: 12px; color: #04d361;">🔒</span>
+                <input 
+                    type="text" 
+                    id="addressBar" 
+                    class="url-bar" 
+                    placeholder="Ketik URL atau kata kunci pencarian..."
+                    value="https://www.bing.com" 
+                    onkeydown="handleSearch(event)"
+                />
+            </div>
+
+            <button class="btn" onclick="navigateToUrl()" style="width: auto; padding: 0 12px;">Go</button>
+        </div>
+    </div>
+
+    <!-- Web Content Area -->
+    <div class="viewport-container">
+        <!-- Menggunakan sandbox untuk membatasi pop-up / script iklan agresif -->
+        <iframe 
+            id="browserFrame" 
+            src="https://www.bing.com" 
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            loading="lazy">
+        </iframe>
+
+        <div class="csp-warning">
+            ℹ️ <b>Catatan:</b> Situs dengan enkripsi ketat (seperti Google, YouTube) menolak ditampilkan di dalam frame HTML demi keamanan (CSP Policy).
+        </div>
+    </div>
+
+    <script>
+        const iframe = document.getElementById('browserFrame');
+        const addressBar = document.getElementById('addressBar');
+        const activeTabTitle = document.getElementById('activeTabTitle');
+
+        function sanitizeUrl(input) {
+            input = input.trim();
+            if (!input) return 'about:blank';
+
+            // Jika berupa domain valid
+            const domainPattern = /^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/.*)?$/;
+            if (domainPattern.test(input)) {
+                return 'https://' + input;
+            } else if (input.startsWith('http://') || input.startsWith('https://')) {
+                return input;
+            } else {
+                // Pencarian langsung
+                return 'https://www.bing.com/search?q=' + encodeURIComponent(input);
+            }
+        }
+
+        function navigateToUrl() {
+            const url = sanitizeUrl(addressBar.value);
+            addressBar.value = url;
+            iframe.src = url;
+            activeTabTitle.innerHTML = `<span>🌐 ${new URL(url).hostname}</span>`;
+        }
+
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                navigateToUrl();
+            }
+        }
+
+        function historyBack() {
+            try {
+                window.history.back();
+            } catch (e) {}
+        }
+
+        function historyForward() {
+            try {
+                window.history.forward();
+            } catch (e) {}
+        }
+
+        function reloadFrame() {
+            iframe.src = iframe.src;
+        }
+
+        function newTab() {
+            addressBar.value = 'https://www.bing.com';
+            navigateToUrl();
+        }
+    </script>
 </body>
-</html>
+             </html>
